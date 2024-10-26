@@ -46,4 +46,4 @@ gem 'rack-cors', require: 'rack/cors'
 
 
 gem 'pg'
-git push -u origin main
+
