@@ -6,9 +6,11 @@ import './App.css';
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+  
+  const API_URL = process.env.REACT_APP_API_URL; // Add this line to define API_URL
 
   const fetchTasks = () => {
-    fetch('http://localhost:3000/tasks')
+    fetch(`${API_URL}/api/v1/tasks`) // Update this line to use API_URL
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error(error));
@@ -24,7 +26,7 @@ const App = () => {
   };
 
   const handleDeleteTask = (id) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${API_URL}/api/v1/tasks/${id}`, { // Update this line to use API_URL
       method: 'DELETE',
     })
       .then(() => {
